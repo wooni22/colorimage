@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: lightyellow;
+            transition: all 1s;
+            height: 2000px;
+            margin: 0;
+        }
+        .bgcolor--blue{
+            transition: 1s;
+            background-color: lightblue;
+        }
+        .bgcolor--gray{
+            transition: 1s;
+            background-color: lightgray;
+        }
+        .bgcolor--img{
+            margin: 0;
+            background-image: url(/bg/bg.jpg);
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            transition: all 1s;
+            opacity: 0;
+        }
+        .bgcolor--img-show{
+            opacity: 1;
+        }
+        .btn {
+            position: relative;
+            top: 60px;
+            width: 500px;
+            padding: 40px;
+            background-color: white;
+            margin: auto;
+            text-align: center;
+
+        }
+        .btn {
+            position: relative;
+            padding: 10px;
+            background-color: transparent;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="bgcolor--img"></div>
+    <div class="btn">
+        <button class="btn_toggle">배경색상변경 토글버튼</button>
+        <button class="btn_reset">배경색상 리셋</button>
+        <button class="btn_bggray">배경색상변경 그레이</button>
+        <button class="btn_bgimg">배경이미지</button>
+    </div>
+    <script>
+        const bgContainer = document.querySelector('.bgcolor--img')
+      const btnBG =document.querySelector('.btn_toggle');
+      btnBG.addEventListener('click', function(){
+          bgContainer.classList.remove('bgcolor--img-show');
+          document.body.classList.toggle('bgcolor--blue');
+      });
+      const btnRe =document.querySelector('.btn_reset');
+      btnRe.addEventListener('click', function(){
+        bgContainer.classList.remove('bgcolor--img-show');
+          document.body.classList.remove('bgcolor--blue' , 'bgcolor--gray', 'bgcolor--img');
+      });
+      const btnGr =document.querySelector('.btn_bggray');
+      btnGr.addEventListener('click',function(){
+        bgContainer.classList.remove('bgcolor--img_show');
+          document.body.classList.add('bgcolor--gray');
+      });
+      const btnbgIm =document.querySelector('.btn_bgimg');
+      btnbgIm.addEventListener('click',function(){
+        bgContainer.classList.add('bgcolor--img-show');
+      });
+    </script>
+ 
+
+</body>
+</html>
